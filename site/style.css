@@ -1,0 +1,119 @@
+body {
+    background-image: url(https://i.redd.it/oqspeqq1a8ha1.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    color: white;
+
+    font-family: 'Poppins', sans-serif;
+
+    margin: 0;
+    padding: 0;
+}
+
+/* seletor de tag */
+header {
+    text-align: center;
+    padding: 20px;
+}
+
+/* seletor de id */
+#topo {
+    color: #ffd369;
+    font-family: 'Cinzel', serif;
+    font-size: 45px;
+
+    text-shadow: 3px 3px 8px black;
+}
+
+/* seletor de classe */
+.texto-centro {
+    text-align: center;
+    font-size: 18px;
+}
+
+/* navegação */
+nav {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* agrupamento de tags */
+nav a,
+footer p {
+    color: #d8c3ff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* efeito hover */
+nav a:hover {
+    color: gold;
+    text-decoration: underline;
+}
+
+main {
+    width: 75%;
+    margin: auto;
+}
+
+/* box model */
+.card {
+    background-color: rgba(0, 0, 0, 0.6);
+
+    margin-bottom: 25px;
+    padding: 20px;
+
+    border-radius: 20px;
+
+    border: 3px solid #d8c3ff;
+
+    box-shadow: 0px 0px 15px black;
+}
+
+/* títulos */
+h2 {
+    text-align: center;
+    color: #ffd369;
+
+    font-size: 30px;
+
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* imagens */
+.imagem-centro {
+    text-align: center;
+}
+
+img,
+iframe {
+    width: 500px;
+
+    border-radius: 20px;
+
+    border: 2px solid white;
+}
+
+.lista {
+    width: fit-content;
+    margin: auto;
+
+    font-size: 18px;
+
+    list-style-type: square;
+    line-height: 35px;
+}
+
+/* links */
+a {
+    transition: 0.3s;
+}
+
+/* rodapé */
+footer {
+    text-align: center;
+    padding: 15px;
+}
