@@ -1,30 +1,44 @@
-# Hogwarts Legacy - Projeto HTML
+# Atividades de HTML e CSS
 
-Esse projeto foi desenvolvido para uma atividade de HTML com tema livre.
+Repositório criado para armazenar as atividades da disciplina de Desenvolvimento Web.
 
-O tema escolhido foi o jogo Hogwarts Legacy, mostrando um pouco sobre o jogo, as casas de Hogwarts e a personalização do personagem.
+## Organização das pastas
 
-## Páginas do projeto
+- `Atividade 1` → Primeira atividade utilizando HTML
+- `Atividade 2` → Página estilizada utilizando HTML e CSS
 
-- `index.html` → página principal sobre o jogo
-- `casas.html` → informações sobre as casas de Hogwarts
-- `gameplay.html` → página sobre personalização e prints da minha gameplay
+---
+
+# Atividade 2 - Hogwarts Legacy
+
+Projeto com tema inspirado no jogo Hogwarts Legacy, contendo múltiplas páginas conectadas entre si.
+
+## Arquivos da atividade
+
+- `index.html` → Página principal
+- `gameplay.html` → Página sobre gameplay e personagem
+- `casas.html` → Página sobre as casas de Hogwarts
+- `style.css` → Arquivo de estilização CSS
 
 ## Recursos utilizados
 
-- HTML5
-- Tags semânticas
-- Links internos e externos
+### HTML
+- Estrutura semântica
+- Links entre páginas
 - Listas ordenadas e não ordenadas
 - Imagens
-- iframe com trailer do jogo
-- Fundo personalizado
-- Organização visual usando estilos inline
+- Vídeo incorporado
 
-## Objetivo
+### CSS
+- Cor de fundo
+- Alteração de fontes com Google Fonts
+- Estilização de textos
+- Seletores de tag, classe e id
+- Box Model
+- Bordas
+- Hover em links
+- Comentários e organização do código
 
-Praticar estruturação de páginas HTML, organização semântica e navegação entre páginas.
-
-## Tema escolhido
-
-Escolhi Hogwarts Legacy porque é um jogo que gostei bastante de jogar e achei interessante fazer um site inspirado nele.
+## Tecnologias utilizadas
+- HTML5
+- CSS3
