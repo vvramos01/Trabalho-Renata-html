@@ -7,15 +7,21 @@
     <title>Sweet Cake</title>
 
     <link rel="stylesheet" href="style.css">
+
+    <!-- icones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
 
-    <!-- menu -->
+    <!-- header-->
 
     <header class="topo">
 
-        <h1 class="logo">Sweet Cake 🍰</h1>
+        <div class="logo">
+            <i class="fa-solid fa-cake-candles"></i>
+            Sweet Cake
+        </div>
 
         <nav class="menu">
             <a href="">Início</a>
@@ -30,25 +36,29 @@
 
     <section class="banner">
 
+        <div class="overlay"></div>
+
         <div class="texto-banner">
 
-            <h2>Os melhores bolos da cidade</h2>
+            <h1>Os Melhores Bolos da Cidade 🍰</h1>
 
             <p>
-                Bolos feitos com muito carinho e ingredientes especiais.
+                Bolos artesanais feitos com muito carinho para deixar seu dia mais doce.
             </p>
 
-            <button id="botao">Ver Cardápio</button>
+            <button id="botaoBanner">Ver Cardápio</button>
 
         </div>
 
     </section>
 
-    <!-- cards -->
+    <!-- conteudo -->
 
     <main class="container">
 
-        <h2 class="titulo">Nossos Bolos</h2>
+        <h2 class="titulo">Nossos Destaques</h2>
+
+        <!-- grid -->
 
         <section class="cards">
 
@@ -56,16 +66,22 @@
 
             <div class="card">
 
-                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=1200&auto=format&fit=crop"
-                    alt="bolo de chocolate">
+                <div class="imagem">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=1200&auto=format&fit=crop"
+                        alt="">
+                </div>
 
-                <div class="info">
+                <div class="conteudo">
 
                     <h3>Bolo de Chocolate</h3>
 
                     <p>
-                        Bolo de chocolate com cobertura cremosa e granulado.
+                        Massa super fofinha com cobertura cremosa e muito chocolate.
                     </p>
+
+                    <div class="preco">
+                        R$ 49,90
+                    </div>
 
                     <button>Comprar</button>
 
@@ -77,16 +93,22 @@
 
             <div class="card">
 
-                <img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?q=80&w=1200&auto=format&fit=crop"
-                    alt="bolo de morango">
+                <div class="imagem">
+                    <img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?q=80&w=1200&auto=format&fit=crop"
+                        alt="">
+                </div>
 
-                <div class="info">
+                <div class="conteudo">
 
                     <h3>Bolo de Morango</h3>
 
                     <p>
-                        Massa fofinha com recheio de morango e chantilly.
+                        Delicioso recheio de morango com chantilly artesanal.
                     </p>
+
+                    <div class="preco">
+                        R$ 54,90
+                    </div>
 
                     <button>Comprar</button>
 
@@ -98,16 +120,22 @@
 
             <div class="card">
 
-                <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?q=80&w=1200&auto=format&fit=crop"
-                    alt="red velvet">
+                <div class="imagem">
+                    <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?q=80&w=1200&auto=format&fit=crop"
+                        alt="">
+                </div>
 
-                <div class="info">
+                <div class="conteudo">
 
                     <h3>Red Velvet</h3>
 
                     <p>
-                        Massa vermelha com cobertura especial de cream cheese.
+                        Massa vermelha macia com cobertura especial de cream cheese.
                     </p>
+
+                    <div class="preco">
+                        R$ 59,90
+                    </div>
 
                     <button>Comprar</button>
 
@@ -117,13 +145,55 @@
 
         </section>
 
+        <!-- extra-->
+
+        <section class="extra">
+
+            <div class="extra-box">
+
+                <i class="fa-solid fa-truck"></i>
+
+                <h3>Entrega Rápida</h3>
+
+                <p>
+                    Entregamos seu pedido com rapidez e segurança.
+                </p>
+
+            </div>
+
+            <div class="extra-box">
+
+                <i class="fa-solid fa-heart"></i>
+
+                <h3>Feito com Amor</h3>
+
+                <p>
+                    Todos os bolos são preparados artesanalmente.
+                </p>
+
+            </div>
+
+            <div class="extra-box">
+
+                <i class="fa-solid fa-star"></i>
+
+                <h3>Melhor Avaliação</h3>
+
+                <p>
+                    Loja muito bem avaliada pelos nossos clientes.
+                </p>
+
+            </div>
+
+        </section>
+
     </main>
 
-    <!-- rodapé -->
+    <!-- rodape -->
 
     <footer class="rodape">
 
-        <p>Sweet Cake © 2026</p>
+        <p>Sweet Cake © 2026 - Todos os direitos reservados.</p>
 
     </footer>
 
