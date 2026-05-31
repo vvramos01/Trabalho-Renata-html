@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Horário ENSW</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    background: #fff;
+    padding: 10px;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  td, th {
+    border: 1px solid #aaa;
+    padding: 4px 6px;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  /* ── Top info bar ── */
+  .top-bar {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 0;
+  }
+  .top-bar td {
+    border: 1px solid #aaa;
+    padding: 4px 8px;
+    font-size: 12px;
+    background: #f2f2f2;
+  }
+  .top-bar .title-left { text-align: left; font-weight: normal; }
+  .top-bar .title-rep  { text-align: center; font-weight: normal; }
+  .top-bar .title-right { text-align: center; font-weight: bold; background: #f2f2f2; }
+
+  /* ── header row ENSW e dias ── */
+  .header-ensw {
+    background: #F97316;
+    color: #fff;
+    font-weight: bold;
+    font-size: 13px;
+    width: 80px;
+  }
+  .header-day {
+    background: #fff;
+    font-weight: bold;
+    font-size: 12px;
+  }
+
+  /* ── coluna de horas ── */
+  .time-cell {
+    background: #fff;
+    font-size: 11px;
+    white-space: nowrap;
+    width: 80px;
+  }
+
+  /* ── conteudo ── */
+  .content-cell {
+    background: #fff;
+    vertical-align: top;
+    text-align: center;
+    font-size: 11.5px;
+    padding: 8px 6px;
+    line-height: 1.5;
+  }
+  .content-cell .subject { font-weight: normal; }
+  .content-cell .gh      { font-weight: normal; }
+  .content-cell .code    { font-weight: normal; }
+  .content-cell .prof    { font-weight: normal; }
+  .content-cell .room    { font-weight: normal; }
+  .content-cell .roomcode{ font-weight: normal; }
+
+  /* outlie azul na segunda coluna */
+  .blue-border { outline: 2px solid #3B82F6; outline-offset: -2px; }
+
+  /* ── intervalo ── */
+  .interval-time {
+    background: #fff;
+    font-size: 11px;
+    text-align: center;
+  }
+  .interval-cell {
+    background: #fff;
+    font-size: 11px;
+    text-align: center;
+    font-style: italic;
+    color: #444;
+  }
+
+  /* ── flex laranja ── */
+  .flex-cell {
+    background: #F97316;
+    color: #fff;
+    font-weight: bold;
+    font-size: 12px;
+    vertical-align: middle;
+    text-align: center;
+    padding: 8px 6px;
+    line-height: 1.6;
+  }
+
+  /* celua vazia */
+  .empty-cell {
+    background: #fff;
+  }
+</style>
+</head>
+<body>
+
+<table>
+  <!-- top info bar -->
+  <colgroup>
+    <col style="width:80px">
+    <col>
+    <col>
+    <col>
+    <col>
+    <col style="width:170px">
+  </colgroup>
+  <tbody>
+
+    <!-- top bar -->
+    <tr>
+      <td colspan="3" style="text-align:left; background:#f2f2f2; border:1px solid #aaa; font-size:12px;">
+        CUBO (B6) ENSW - E1 - 2025 turma B2 &nbsp;&nbsp;&nbsp;&nbsp; Rep: Gabriel Yuki Silva Koga (49 alunos)
+      </td>
+      <td colspan="2" style="background:#f2f2f2; border:1px solid #aaa;"></td>
+      <td style="background:#f2f2f2; border:1px solid #aaa; font-weight:bold; text-align:center; font-size:12px;">49 ALUNOS</td>
+    </tr>
+
+    <!-- headers dia -->
+    <tr>
+      <td class="header-ensw">ENSW</td>
+      <td class="header-day">SEGUNDA</td>
+      <td class="header-day">TERÇA</td>
+      <td class="header-day">QUARTA</td>
+      <td class="header-day">QUINTA</td>
+      <td class="header-day">SEXTA</td>
+    </tr>
+
+    <!-- 19h00–20h30 -->
+    <tr>
+      <td class="time-cell" rowspan="1" style="vertical-align:middle;">19h00 - 20h30</td>
+
+      <!-- segunda -->
+      <td class="content-cell blue-border">
+        Cálculo numérico: Sistema em Ponto Flutuante<br>
+        <br>
+        GH: 2<br>
+        <br>
+        MAPC230014<br>
+        <br>
+        Tânia Camila Kochmanscky Goulart<br>
+        1039<br>
+        (6czmqd62)
+      </td>
+
+      <!-- terca -->
+      <td class="content-cell">
+        Algoritmos e Estrutura de Dados: Árvores<br>
+        GH: 4<br>
+        <br>
+        ALLP221008<br>
+        <br>
+        Ricardo Petri Silva<br>
+        Lab 7<br>
+        (5phx5fqh)
+      </td>
+
+      <!-- quarta -->
+      <td class="content-cell">
+        Algoritmos e Estrutura de Dados: Árvores<br>
+        GH: 4<br>
+        <br>
+        ALLP221008<br>
+        <br>
+        Ricardo Petri Silva<br>
+        Lab 7<br>
+        (5phx5fqh)
+      </td>
+
+      <!--quinta -->
+      <td class="content-cell">
+        Desenvolvimento Web: Introdução ao HTML, CSS e Javascript<br>
+        <br>
+        GH: 4<br>
+        <br>
+        COAP230028<br>
+        <br>
+        Renata Porto Gransoti<br>
+        1039<br>
+        (vk47ahfz)
+      </td>
+
+      <!-- sexta -->
+      <td class="flex-cell">
+        Escolha apenas uma Flex disponível<br>
+        neste horário consultando a tabela de
+      </td>
+    </tr>
+
+    <!-- intervalo -->
+    <tr>
+      <td class="interval-time" style="font-size:11px;">20h30 - 20h45</td>
+      <td class="interval-cell">INTERVALO</td>
+      <td class="interval-cell">INTERVALO</td>
+      <td class="interval-cell">INTERVALO</td>
+      <td class="interval-cell">INTERVALO</td>
+      <td class="interval-cell">INTERVALO</td>
+    </tr>
+
+    <!-- 20h45–22h15 -->
+    <tr>
+      <td class="time-cell" style="vertical-align:middle;">20h45 - 22h15</td>
+
+      <!-- seguda -->
+      <td class="content-cell">
+        Desenvolvimento Web: Introdução ao HTML, CSS e Javascript<br>
+        <br>
+        GH: 4<br>
+        <br>
+        COAP230028<br>
+        <br>
+        Renata Porto Gransoti<br>
+        1039<br>
+        (vk47ahfz)
+      </td>
+
+      <!-- terca -->
+      <td class="content-cell">
+        Introdução a Banco de Dados: SQL Básico<br>
+        <br>
+        GH: 4<br>
+        <br>
+        BDAD230003<br>
+        <br>
+        Robson Zambroti<br>
+        Lab 7<br>
+        (c7rrs6lt)
+      </td>
+
+      <!-- quarta -->
+      <td class="content-cell">
+        Introdução a Banco de Dados: SQL Básico<br>
+        <br>
+        GH: 4<br>
+        <br>
+        BDAD230003<br>
+        <br>
+        Robson Zambroti<br>
+        Lab 7<br>
+        (c7rrs6lt)
+      </td>
+
+      <!-- quinta -->
+      <td class="content-cell">
+        Projeto Interdisciplinar III: PI VI<br>
+        GH: 2<br>
+        <br>
+        PRIN220003<br>
+        <br>
+        Sérgio Kenji<br>
+        1039<br>
+        (yeohenbo)
+      </td>
+
+      <!-- sexta -->
+      <td class="flex-cell">
+        Escolha apenas uma Flex disponível neste horário. Consulte a tabela de Flex.
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+
+</body>
+</html>
