@@ -90,3 +90,33 @@ Projeto de uma loja online de bolos utilizando HTML, CSS e JavaScript, contendo 
 - HTML5
 - CSS3
 - JavaScript
+
+---
+
+# Atividade 4 - Tabelas (Rotina Semanal)
+
+Projeto focado na construção e estilização de tabelas, desenvolvendo uma grade de rotina semanal personalizada.
+
+### Arquivos da atividade
+
+- index.html → Estrutura HTML da tabela de rotina
+- style.css → Arquivo de estilização CSS separado
+
+### Recursos utilizados
+
+#### HTML
+- Estrutura de tabelas (`<table>`, `<thead>`, `<tbody>`, `<tr>`, `<th>`, `<td>`)
+- Título descritivo de tabela (`<caption>`)
+- Mesclagem de colunas com o atributo `colspan`
+- Linkagem de arquivo CSS externo
+
+#### CSS
+- Reset básico de margens e preenchimentos
+- Estilização de bordas e uso de `border-collapse`
+- Alinhamento de texto e centralização vertical/horizontal
+- Uso de paleta de cores personalizada (backgrounds e cores de fonte)
+- Espaçamento de letras (`letter-spacing`)
+
+### Tecnologias utilizadas
+- HTML5
+- CSS3
