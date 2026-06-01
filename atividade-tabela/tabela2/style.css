@@ -1,0 +1,59 @@
+/* reset e fundo de pagian */
+* { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
+
+body {
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  background: #fdf2f8;
+  padding: 40px;
+}
+
+/* estilos tabela rotina */
+.tabela-2 {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+}
+
+.tabela-2 caption {
+  font-size: 24px;
+  font-weight: bold;
+  color: #d81b60;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* alinhamento espaçamento e bordas */
+.tabela-2 th, .tabela-2 td {
+  padding: 12px 8px;
+  border: 1px solid #ccc;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 14px;
+}
+
+/* cores de fundo e alteracao de cor de texto */
+.tabela-2 .cabecalho-rosa {
+  background-color: #FFB6C1;
+  color: #333333;
+  font-weight: bold;
+  border: 1px solid #fff;
+}
+
+.tabela-2 .celula-branca {
+  background-color: #ffffff;
+  color: #333333;
+}
+
+/* colspan linha do almoço */
+.tabela-2 .linha-almoco {
+  background-color: #fff0f5;
+  font-style: italic;
+  font-weight: bold;
+  color: #d81b60;
+  letter-spacing: 2px;
+}
