@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projetos — Seu Nome</title>
+  <meta name="description" content="Projetos desenvolvidos por Seu Nome." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ── NAV ───────────────────────────────── -->
+  <nav>
+    <a href="index.html" class="nav-logo">seu.nome</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="index.html#sobre">Sobre</a></li>
+      <li><a href="projetos.html">Projetos</a></li>
+      <li><a href="contato.html">Contato</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:0.6rem;">
+      <button class="theme-toggle" title="Alternar tema">🌙</button>
+      <button class="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ── HERO PÁGINA ───────────────────── -->
+    <header class="page-hero">
+      <p class="section-label fade-in">Meu trabalho</p>
+      <h1 class="section-title fade-in" style="font-size:clamp(2.2rem,5vw,3.5rem);margin-bottom:.8rem;">
+        Projetos
+      </h1>
+      <p class="section-desc fade-in">
+        Cada projeto aqui representa uma etapa da minha jornada —
+        experimentos, aprendizados e muitas linhas de código.
+      </p>
+
+      <!-- FILTRO — manipulação do DOM via JS -->
+      <div class="filter-bar fade-in" role="group" aria-label="Filtrar projetos">
+        <button class="filter-btn active" data-filtro="todos">Todos</button>
+        <button class="filter-btn" data-filtro="html">HTML &amp; CSS</button>
+        <button class="filter-btn" data-filtro="js">JavaScript</button>
+        <button class="filter-btn" data-filtro="dom">DOM</button>
+        <button class="filter-btn" data-filtro="responsivo">Responsivo</button>
+      </div>
+    </header>
+
+    <!-- ── GRID DE PROJETOS ──────────────── -->
+    <section>
+      <div class="container">
+        <div class="projects-grid">
+
+          <article class="project-card fade-in" data-categoria="html css responsivo">
+            <div class="project-icon">🌐</div>
+            <h3>Site Responsivo</h3>
+            <p>Landing page responsiva com menu mobile, seções animadas e layout em grid. Desenvolvida do zero com atenção a acessibilidade.</p>
+            <div class="project-techs">
+              <span class="tech-badge">HTML5</span>
+              <span class="tech-badge">CSS3</span>
+              <span class="tech-badge">Flexbox</span>
+              <span class="tech-badge">Grid</span>
+            </div>
+            <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+              <a href="https://github.com/seuusuario" target="_blank" rel="noopener" class="project-link">
+                <i class="fa-brands fa-github fa-xs"></i> Código
+              </a>
+              <a href="#" class="project-link">
+                Demo ao vivo <i class="fa-solid fa-arrow-right fa-xs"></i>
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card fade-in" data-categoria="js dom">
+            <div class="project-icon">✅</div>
+            <h3>To-do List Interativa</h3>
+            <p>App de tarefas com adição, remoção, marcação de concluídas e filtros. Usa manipulação do DOM e localStorage para persistência.</p>
+            <div class="project-techs">
+              <span class="tech-badge">JavaScript</span>
+              <span class="tech-badge">DOM API</span>
+              <span class="tech-badge">localStorage</span>
+            </div>
+            <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+              <a href="https://github.com/seuusuario" target="_blank" rel="noopener" class="project-link">
+                <i class="fa-brands fa-github fa-xs"></i> Código
+              </a>
+              <a href="#" class="project-link">Demo <i class="fa-solid fa-arrow-right fa-xs"></i></a>
+            </div>
+          </article>
+
+          <article class="project-card fade-in" data-categoria="html css">
+            <div class="project-icon">🎨</div>
+            <h3>UI Clone — App de Música</h3>
+            <p>Recriação visual de interface de streaming musical como exercício de estilização avançada, gradientes e micro-interações CSS.</p>
+            <div class="project-techs">
+              <span class="tech-badge">HTML</span>
+              <span class="tech-badge">CSS Animations</span>
+              <span class="tech-badge">Pseudo-elementos</span>
+            </div>
+            <div style="display:flex;gap:1rem;">
+              <a href="https://github.com/seuusuario" target="_blank" rel="noopener" class="project-link">
+                <i class="fa-brands fa-github fa-xs"></i> Código
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card fade-in" data-categoria="js dom responsivo">
+            <div class="project-icon">🌦️</div>
+            <h3>App do Clima</h3>
+            <p>Consulta de temperatura e condições climáticas integrando API pública. Interface dinâmica que muda visual conforme o clima.</p>
+            <div class="project-techs">
+              <span class="tech-badge">JavaScript</span>
+              <span class="tech-badge">Fetch API</span>
+              <span class="tech-badge">JSON</span>
+              <span class="tech-badge">Responsivo</span>
+            </div>
+            <div style="display:flex;gap:1rem;">
+              <a href="https://github.com/seuusuario" target="_blank" rel="noopener" class="project-link">
+                <i class="fa-brands fa-github fa-xs"></i> Código
+              </a>
+              <a href="#" class="project-link">Demo <i class="fa-solid fa-arrow-right fa-xs"></i></a>
+            </div>
+          </article>
+
+          <article class="project-card fade-in" data-categoria="html css responsivo">
+            <div class="project-icon">🍰</div>
+            <h3>Cardápio Digital</h3>
+            <p>Site para uma confeitaria fictícia com galeria de produtos, seção de contato e layout totalmente responsivo.</p>
+            <div class="project-techs">
+              <span class="tech-badge">HTML</span>
+              <span class="tech-badge">CSS Grid</span>
+              <span class="tech-badge">Media Queries</span>
+            </div>
+            <div style="display:flex;gap:1rem;">
+              <a href="https://github.com/seuusuario" target="_blank" rel="noopener" class="project-link">
+                <i class="fa-brands fa-github fa-xs"></i> Código
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card fade-in" data-categoria="js dom">
+            <div class="project-icon">🎲</div>
+            <h3>Quiz Interativo</h3>
+            <p>Quiz de perguntas e respostas com pontuação, cronômetro e feedback visual. Perguntas carregadas dinamicamente via JS.</p>
+            <div class="project-techs">
+              <span class="tech-badge">JavaScript</span>
+              <span class="tech-badge">DOM</span>
+              <span class="tech-badge">setInterval</span>
+            </div>
+            <div style="display:flex;gap:1rem;">
+              <a href="https://github.com/seuusuario" target="_blank" rel="noopener" class="project-link">
+                <i class="fa-brands fa-github fa-xs"></i> Código
+              </a>
+              <a href="#" class="project-link">Demo <i class="fa-solid fa-arrow-right fa-xs"></i></a>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Botão GitHub -->
+        <div class="fade-in" style="text-align:center;margin-top:3.5rem;">
+          <p style="color:var(--texto-suave);font-size:.9rem;margin-bottom:1rem;">
+            Todos os projetos estão disponíveis no GitHub
+          </p>
+          <a href="https://github.com/seuusuario" target="_blank" rel="noopener" class="btn btn-primary">
+            <i class="fa-brands fa-github"></i> Ver repositórios
+          </a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Feito com <span>♥</span> e muito café · &copy; 2025 Seu Nome</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
