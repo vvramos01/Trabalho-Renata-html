@@ -1,62 +1,223 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seu Nome — Portfólio</title>
+  <meta name="description" content="Portfólio pessoal de desenvolvimento web." />
+
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Ícones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-    <header>
-        <nav>
-            <a href="index.html" class="logo">MEU PORTFOLIO</a>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="sobre.html">Sobre</a></li>
-                <li><a href="projetos.html">Projetos</a></li>
-            </ul>
-        </nav>
-    </header>
+  <!-- ── NAVEGAÇÃO ─────────────────────────── -->
+  <nav>
+    <a href="index.html" class="nav-logo">seu.nome</a>
 
-    <main>
-        <section class="hero">
-            <h1>Olá, eu sou <span id="nome">Seu Nome</span> 👋</h1>
-            <p>Estudante de Desenvolvimento de Sistemas apaixonado por tecnologia.</p>
-            <div class="hero-botoes">
-                <a href="projetos.html" class="btn btn-roxo">Ver projetos</a>
-                <a href="sobre.html" class="btn btn-branco">Sobre mim</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="index.html#sobre">Sobre</a></li>
+      <li><a href="projetos.html">Projetos</a></li>
+      <li><a href="contato.html">Contato</a></li>
+    </ul>
+
+    <div style="display:flex;align-items:center;gap:0.6rem;">
+      <button class="theme-toggle" title="Alternar tema">🌙</button>
+      <button class="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── HERO ──────────────────────────────── -->
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <span class="hero-eyebrow">Portfólio pessoal</span>
+
+        <h1>Olá, sou<br /><span>Seu Nome</span> ✨</h1>
+
+        <p class="hero-subtitle">
+          <span id="typed-text"></span><span class="cursor"></span>
+        </p>
+
+        <p class="hero-desc">
+          Estudante apaixonada por criar experiências digitais bonitas e funcionais.
+          Transformando ideias em código, uma linha de cada vez.
+        </p>
+
+        <div class="hero-actions">
+          <a href="projetos.html" class="btn btn-primary">
+            Ver projetos <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="contato.html" class="btn btn-secondary">Falar comigo</a>
+        </div>
+
+        <div class="social-icons" style="margin-top:2rem;">
+          <a href="https://linkedin.com/in/seuperfil" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+          <a href="https://github.com/seuusuario" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="mailto:seu@email.com" class="social-icon" aria-label="E-mail">
+            <i class="fa-regular fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SOBRE ──────────────────────────────── -->
+    <section id="sobre">
+      <div class="container">
+        <div class="about-grid">
+
+          <!-- Imagem / avatar -->
+          <div class="about-img-wrap fade-in">
+            <div class="about-img-placeholder">
+              <!--
+                Substitua o emoji abaixo por uma tag <img>:
+                <img src="imagens/sua-foto.jpg" alt="Foto de Seu Nome" />
+              -->
+              👩‍💻
             </div>
-        </section>
-
-        <section class="habilidades">
-            <h2>O que estou aprendendo</h2>
-            <div class="cards-hab">
-                <div class="card-hab">
-                    <span>🌐</span>
-                    <h3>HTML & CSS</h3>
-                    <p>Estrutura e estilização de páginas web.</p>
-                </div>
-                <div class="card-hab">
-                    <span>⚡</span>
-                    <h3>JavaScript</h3>
-                    <p>Lógica, DOM e interatividade nas páginas.</p>
-                </div>
-                <div class="card-hab">
-                    <span>🐙</span>
-                    <h3>Git & GitHub</h3>
-                    <p>Versionamento e publicação de projetos.</p>
-                </div>
+            <div class="about-badge">
+              <p>projetos</p>
+              <strong>+5</strong>
             </div>
-        </section>
+          </div>
 
-        <!-- contato vou adicionar depois -->
-    </main>
+          <!-- Texto -->
+          <div class="fade-in">
+            <p class="section-label">Sobre mim</p>
+            <h2 class="section-title">Quem está por trás do código?</h2>
+            <p class="section-desc">
+              Sou estudante de Tecnologia da Informação, curiosa por natureza e
+              apaixonada pelo front-end. Gosto de transformar designs em interfaces
+              acessíveis e bonitas, com atenção a cada detalhe.
+            </p>
+            <p style="font-size:.95rem;color:var(--texto-suave);line-height:1.8;margin-bottom:1.5rem;">
+              Quando não estou codando, estou estudando UX, ouvindo podcasts de
+              tecnologia ou tentando aprender mais uma linguagem de programação.
+            </p>
 
-    <footer>
-        <p>Feito por <strong>Seu Nome</strong> • 2025</p>
-    </footer>
+            <p class="section-label" style="margin-bottom:.8rem;">Habilidades</p>
+            <div class="skills-tags">
+              <span class="tag">HTML5</span>
+              <span class="tag">CSS3</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Git &amp; GitHub</span>
+              <span class="tag">Responsividade</span>
+              <span class="tag">UI Design</span>
+              <span class="tag">Figma</span>
+              <span class="tag">Python básico</span>
+            </div>
+          </div>
 
-    <script src="script.js"></script>
+        </div>
+
+        <!-- Timeline formação -->
+        <div style="margin-top:5rem;">
+          <p class="section-label fade-in">Trajetória</p>
+          <h2 class="section-title fade-in">Formação &amp; experiência</h2>
+
+          <div class="timeline" style="margin-top:2rem;">
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <p class="timeline-date">2023 – presente</p>
+              <h4>Tecnologia da Informação</h4>
+              <span>Nome da Faculdade / Instituição</span>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <p class="timeline-date">2024</p>
+              <h4>Desenvolvimento Web — Curso livre</h4>
+              <span>HTML, CSS, JavaScript na prática</span>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <p class="timeline-date">2023</p>
+              <h4>Lógica de Programação</h4>
+              <span>Fundamentos de algoritmos e estruturas</span>
+            </article>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── DESTAQUE PROJETOS ───────────────── -->
+    <section style="background:var(--branco-card);border-top:1px solid var(--borda);border-bottom:1px solid var(--borda);">
+      <div class="container">
+        <div class="fade-in" style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2.5rem;flex-wrap:wrap;gap:1rem;">
+          <div>
+            <p class="section-label">Trabalhos</p>
+            <h2 class="section-title">Projetos em destaque</h2>
+          </div>
+          <a href="projetos.html" class="btn btn-secondary">Ver todos <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="projects-grid">
+
+          <article class="project-card fade-in" data-categoria="html css js">
+            <div class="project-icon">🌐</div>
+            <h3>Site Responsivo</h3>
+            <p>Landing page responsiva desenvolvida do zero, com foco em acessibilidade e boas práticas de HTML semântico.</p>
+            <div class="project-techs">
+              <span class="tech-badge">HTML</span>
+              <span class="tech-badge">CSS</span>
+              <span class="tech-badge">Flexbox</span>
+            </div>
+            <a href="projetos.html" class="project-link">Ver projeto <i class="fa-solid fa-arrow-right fa-xs"></i></a>
+          </article>
+
+          <article class="project-card fade-in" data-categoria="js dom">
+            <div class="project-icon">🎯</div>
+            <h3>To-do List Interativa</h3>
+            <p>Aplicação de lista de tarefas com manipulação do DOM, armazenamento local e animações CSS.</p>
+            <div class="project-techs">
+              <span class="tech-badge">JavaScript</span>
+              <span class="tech-badge">DOM</span>
+              <span class="tech-badge">localStorage</span>
+            </div>
+            <a href="projetos.html" class="project-link">Ver projeto <i class="fa-solid fa-arrow-right fa-xs"></i></a>
+          </article>
+
+          <article class="project-card fade-in" data-categoria="html css">
+            <div class="project-icon">🎨</div>
+            <h3>UI/UX Clone</h3>
+            <p>Recriação de interface de um app popular como exercício de estilização avançada e atenção a detalhes visuais.</p>
+            <div class="project-techs">
+              <span class="tech-badge">CSS</span>
+              <span class="tech-badge">Grid</span>
+              <span class="tech-badge">Animations</span>
+            </div>
+            <a href="projetos.html" class="project-link">Ver projeto <i class="fa-solid fa-arrow-right fa-xs"></i></a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── FOOTER ─────────────────────────────── -->
+  <footer>
+    <p>Feito com <span>♥</span> e muito café · &copy; 2025 Seu Nome</p>
+  </footer>
+
+  <script src="js/script.js"></script>
 </body>
 </html>
