@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfólio — Contato</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --rosa:        #FF85A1;
+      --rosa-claro:  #FFD6E0;
+      --rosa-medio:  #FFACC7;
+      --rosa-escuro: #D94F72;
+      --bg:          #FFFAFC;
+      --cinza-suave: #F7F0F3;
+      --texto:       #3A3A4A;
+      --texto-leve:  #888899;
+      --sombra:      rgba(255,133,161,0.18);
+    }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Poppins',sans-serif; background:var(--bg); color:var(--texto); line-height:1.7; overflow-x:hidden; }
+
+    /* NAV */
+    nav {
+      position:fixed; top:0; left:0; right:0; z-index:100;
+      background:rgba(255,250,252,.93); backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--rosa-claro); height:62px;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:0 2rem; transition:box-shadow .3s;
+    }
+    nav.scrolled { box-shadow:0 4px 20px var(--sombra); }
+    .logo { font-family:'Playfair Display',serif; font-style:italic; font-size:1.35rem; color:var(--rosa-escuro); text-decoration:none; }
+    .nav-links { display:flex; gap:2rem; list-style:none; }
+    .nav-links a { text-decoration:none; color:var(--texto); font-size:.88rem; font-weight:500; position:relative; padding-bottom:4px; transition:color .2s; }
+    .nav-links a::after { content:''; position:absolute; bottom:0; left:0; width:0; height:2px; border-radius:2px; background:var(--rosa); transition:width .3s; }
+    .nav-links a:hover, .nav-links a.ativa { color:var(--rosa-escuro); }
+    .nav-links a.ativa::after, .nav-links a:hover::after { width:100%; }
+    .hamburger { display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
+    .hamburger span { display:block; width:24px; height:2px; background:var(--texto); border-radius:2px; transition:all .3s; }
+    .hamburger.aberto span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+    .hamburger.aberto span:nth-child(2){ opacity:0; }
+    .hamburger.aberto span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+
+    /* PAGE HERO */
+    .page-hero {
+      padding:8rem 2rem 2.5rem; text-align:center;
+      background:radial-gradient(ellipse 75% 50% at 50% 0%, var(--rosa-claro), transparent 70%);
+    }
+    .sec-titulo { font-family:'Playfair Display',serif; font-size:clamp(1.7rem,3.5vw,2.3rem); text-align:center; margin-bottom:.4rem; }
+    .sec-linha  { display:block; width:46px; height:3px; background:linear-gradient(90deg,var(--rosa),var(--rosa-medio)); border-radius:2px; margin:.3rem auto .6rem; }
+    .intro { color:var(--texto-leve); font-size:.92rem; }
+
+    /* CONTATO GRID */
+    section { padding:4rem 2rem; }
+    .container { max-width:960px; margin:0 auto; }
+    .grid-contato {
+    display: grid;
+    grid-template-columns: 420px 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+    /* COLUNA INFO */
+    .info h3 { font-family:'Playfair Display',serif; font-size:1.5rem; margin-bottom:.9rem; }
+    .info p   { color:var(--texto-leve); font-size:.92rem; margin-bottom:1.4rem; }
+    .sociais  { display:flex; flex-direction:column; gap:.85rem; }
+    .social-item {
+      display:flex; align-items:center; gap:.9rem;
+      text-decoration:none; color:var(--texto);
+      padding:.85rem 1rem; border-radius:14px;
+      background:var(--cinza-suave); border:1px solid transparent;
+      transition:all .25s;
+    }
+    .social-item:hover {
+      background:var(--rosa-claro); border-color:var(--rosa-medio);
+      transform:translateX(6px); color:var(--rosa-escuro);
+    }
+    .social-ico {
+      width:40px; height:40px; border-radius:10px;
+      background:#fff; display:flex; align-items:center;
+      justify-content:center; font-size:1.25rem;
+      box-shadow:0 2px 8px var(--sombra); flex-shrink:0;
+    }
+    .social-txt .nome { font-weight:600; font-size:.88rem; display:block; }
+    .social-txt .desc { font-size:.76rem; color:var(--texto-leve); display:block; }
+    .disponivel {
+      margin-top:1.8rem; padding:.9rem 1.1rem;
+      background:var(--rosa-claro); border-radius:14px;
+      display:flex; align-items:center; gap:.7rem;
+      font-size:.88rem; color:var(--rosa-escuro); font-weight:500;
+    }
+
+    /* FORMULÁRIO */
+    .form-box { background:var(--cinza-suave); border-radius:20px; padding:1.8rem; }
+    .form-box h3 { font-family:'Playfair Display',serif; font-size:1.2rem; margin-bottom:1.2rem; }
+    .campo { margin-bottom:1.1rem; }
+    .campo label { display:block; font-size:.83rem; font-weight:500; margin-bottom:.35rem; }
+    .campo input,
+    .campo textarea {
+      width:100%; padding:.75rem .95rem;
+      border:2px solid var(--rosa-claro); border-radius:10px;
+      background:#fff; font-family:'Poppins',sans-serif;
+      font-size:.88rem; color:var(--texto); outline:none;
+      transition:border-color .25s; resize:none;
+    }
+    .campo input:focus, .campo textarea:focus { border-color:var(--rosa); }
+    .aviso { display:none; padding:.75rem 1rem; border-radius:10px; font-size:.85rem; font-weight:500; margin-bottom:.8rem; }
+    .aviso.ok  { background:#d4edda; color:#155724; display:block; }
+    .aviso.err { background:#f8d7da; color:#721c24; display:block; }
+    .btn-enviar {
+      width:100%; padding:.78rem; border-radius:50px;
+      background:var(--rosa); color:#fff; border:none;
+      font-family:'Poppins',sans-serif; font-size:.9rem; font-weight:600;
+      cursor:pointer; transition:all .25s; display:flex; align-items:center; justify-content:center; gap:.5rem;
+    }
+    .btn-enviar:hover { background:var(--rosa-escuro); transform:translateY(-2px); box-shadow:0 8px 20px rgba(217,79,114,.3); }
+
+    /* FOOTER */
+    footer { background:var(--texto); color:#fff; text-align:center; padding:1.8rem 2rem; }
+    footer p { font-size:.82rem; opacity:.7; }
+    footer strong { color:var(--rosa-medio); opacity:1; }
+    .footer-social { display:flex; justify-content:center; gap:1.1rem; margin-top:.7rem; }
+    .footer-social a { color:var(--rosa-medio); font-size:1.2rem; text-decoration:none; transition:transform .2s; display:inline-block; }
+    .footer-social a:hover { transform:scale(1.25); }
+
+    /* REVEAL */
+    .reveal { opacity:0; transform:translateY(24px); transition:opacity .5s ease, transform .5s ease; }
+    .reveal.visivel { opacity:1; transform:translateY(0); }
+
+    /* RESPONSIVE */
+    @media(max-width:768px){
+      .nav-links{ display:none; flex-direction:column; position:absolute; top:62px; left:0; right:0; background:var(--bg); padding:1.5rem 2rem; gap:1.2rem; border-bottom:1px solid var(--rosa-claro); box-shadow:0 8px 24px var(--sombra); }
+      .nav-links.aberto{ display:flex; }
+      .hamburger{ display:flex; }
+      .grid-contato{ grid-template-columns:1fr; }
+    }
+    @media(prefers-reduced-motion:reduce){ *,*::before,*::after{animation:none!important;transition:none!important} }
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="index.html" class="logo">Início</a>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Início</a></li>
+    <li><a href="projetos.html">Projetos</a></li>
+    <li><a href="contato.html" class="ativa">Contato</a></li>
+  </ul>
+</nav>
+
+<main>
+  <div class="page-hero">
+    <h1 class="sec-titulo reveal">Vamos conversar?</h1>
+    <span class="sec-linha reveal"></span>
+    <p class="intro reveal">Seja para colaborar, tirar uma dúvida ou só dar um oi. Fique à vontade!</p>
+  </div>
+
+  <section>
+    <div class="container">
+      <div class="grid-contato">
+
+        <!-- INFO + REDES -->
+<div class="info reveal">
+  <h3>Me encontre por aqui</h3>
+  <p>Estou sempre aberta a novas conversas e oportunidades. Escolha como prefere entrar em contato!</p>
+
+  <div class="sociais">
+
+    <a href="https://github.com/vvramos01" target="_blank" rel="noopener" class="social-item">
+      <div class="social-ico" aria-hidden="true">ଳ</div>
+      <div class="social-txt">
+        <span class="nome">GitHub</span>
+        <span class="desc">github.com/vvramo01</span>
+      </div>
+    </a>
+
+    <a href="https://www.linkedin.com/in/vitoria-ramos-078934313" target="_blank" rel="noopener" class="social-item">
+      <div class="social-ico" aria-hidden="true">ᯤ</div>
+      <div class="social-txt">
+        <span class="nome">LinkedIn</span>
+        <span class="desc">linkedin.com/in/vitoria-ramos-078934313</span>
+      </div>
+    </a>
+
+    <a href="mailto:vitoria.ramos@edu.unifil.br" class="social-item">
+      <div class="social-ico" aria-hidden="true">✉︎</div>
+      <div class="social-txt">
+        <span class="nome">E-mail</span>
+        <span class="desc">vitoria.ramos@edu.unifil.br</span>
+      </div>
+    </a>
+
+  </div>
+
+  <div class="disponivel">
+    Disponível para projetos e colaborações!
+  </div>
+</div>
+
+        <!-- FORMULÁRIO -->
+        <div class="reveal">
+          <div class="form-box">
+            <h3>Manda uma mensagem </h3>
+            <form id="form" novalidate>
+              <div class="campo">
+                <label for="nome">Seu nome</label>
+                <input type="text" id="nome" placeholder="Como posso te chamar?" autocomplete="name" />
+              </div>
+              <div class="campo">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" placeholder="seuemail@exemplo.com" autocomplete="email" />
+              </div>
+              <div class="campo">
+                <label for="assunto">Assunto</label>
+                <input type="text" id="assunto" placeholder="Sobre o que você quer falar?" />
+              </div>
+              <div class="campo">
+                <label for="msg">Mensagem</label>
+                <textarea id="msg" rows="4" placeholder="Escreva sua mensagem aqui..."></textarea>
+              </div>
+              <div class="aviso" id="aviso" role="alert" aria-live="polite"></div>
+              <button type="submit" class="btn-enviar">Enviar mensagem</button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>Feito com carinho por <strong>Vitória Ramos</strong> — 2026</p>
+
+  <div class="footer-social">
+    <a href="https://github.com/vvramos01" target="_blank" rel="noopener" aria-label="GitHub">
+      GitHub
+    </a>
+
+    <a href="https://www.linkedin.com/in/vit%C3%B3ria-ramos-078934313/" target="_blank" rel="noopener" aria-label="LinkedIn">
+  LinkedIn
+</a>
+
+    <a href="mailto:vitoria.ramos@edu.unifil.br" aria-label="E-mail">
+      E-mail
+    </a>
+  </div>
+</footer>
+
+<script>
+  // NAV
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 20));
+  const hamburger = document.getElementById('hamburger');
+  const navLinks  = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('aberto');
+    navLinks.classList.toggle('aberto');
+  });
+
+  // FORMULÁRIO
+  document.getElementById('form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const aviso  = document.getElementById('aviso');
+    const nome   = document.getElementById('nome').value.trim();
+    const email  = document.getElementById('email').value.trim();
+    const assunto= document.getElementById('assunto').value.trim();
+    const msg    = document.getElementById('msg').value.trim();
+
+    aviso.className = 'aviso';
+
+    if (!nome || !email || !assunto || !msg) {
+      aviso.textContent = 'Por favor, preencha todos os campos! :)';
+      aviso.classList.add('err');
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      aviso.textContent = 'E-mail inválido. Verifique e tente novamente.';
+      aviso.classList.add('err');
+      return;
+    }
+
+    aviso.textContent = `Mensagem enviada com sucesso, ${nome}! Em breve entro em contato`;
+    aviso.classList.add('ok');
+    this.reset();
+    setTimeout(() => { aviso.className = 'aviso'; }, 5000);
+  });
+
+  // REVEAL
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visivel'), (e.target.dataset.d || 0) * 100);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach((el, i) => { el.dataset.d = i % 4; obs.observe(el); });
+</script>
+</body>
+</html>
