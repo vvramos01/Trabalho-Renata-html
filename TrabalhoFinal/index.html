@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfólio — Projetos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --rosa:        #FF85A1;
+      --rosa-claro:  #FFD6E0;
+      --rosa-medio:  #FFACC7;
+      --rosa-escuro: #D94F72;
+      --bg:          #FFFAFC;
+      --cinza-suave: #F7F0F3;
+      --texto:       #3A3A4A;
+      --texto-leve:  #888899;
+      --sombra:      rgba(255,133,161,0.18);
+    }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Poppins',sans-serif; background:var(--bg); color:var(--texto); line-height:1.7; overflow-x:hidden; }
+
+    /* NAV */
+   #navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 62px;
+    padding: 0 2rem;
+
+    background: rgba(255,250,252,.93);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--rosa-claro);
+}
+    #navbar.scrolled { box-shadow:0 4px 20px var(--sombra); }
+   .logo{
+    display:block;
+    font-family:'Playfair Display',serif;
+    font-size:1.4rem;
+    font-style:italic;
+    font-weight:bold;
+    color:var(--rosa-escuro);
+    text-decoration:none;
+    white-space:nowrap;
+}
+    .nav-links { display:flex; gap:2rem; list-style:none; }
+    .nav-links a { text-decoration:none; color:var(--texto); font-size:.88rem; font-weight:500; position:relative; padding-bottom:4px; transition:color .2s; }
+    .nav-links a::after { content:''; position:absolute; bottom:0; left:0; width:0; height:2px; border-radius:2px; background:var(--rosa); transition:width .3s; }
+    .nav-links a:hover, .nav-links a.ativa { color:var(--rosa-escuro); }
+    .nav-links a.ativa::after, .nav-links a:hover::after { width:100%; }
+    .hamburger { display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
+    .hamburger span { display:block; width:24px; height:2px; background:var(--texto); border-radius:2px; transition:all .3s; }
+    .hamburger.aberto span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+    .hamburger.aberto span:nth-child(2){ opacity:0; }
+    .hamburger.aberto span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+
+    /* HERO PAGE */
+    .page-hero {
+      padding:8rem 2rem 2.5rem;
+      text-align:center;
+      background:radial-gradient(ellipse 75% 50% at 50% 0%, var(--rosa-claro), transparent 70%);
+    }
+    .sec-titulo { font-family:'Playfair Display',serif; font-size:clamp(1.7rem,3.5vw,2.3rem); text-align:center; margin-bottom:.4rem; }
+    .sec-linha { display:block; width:46px; height:3px; background:linear-gradient(90deg,var(--rosa),var(--rosa-medio)); border-radius:2px; margin:.3rem auto .6rem; }
+    .intro { color:var(--texto-leve); font-size:.92rem; margin-bottom:0; }
+
+    /* FILTROS */
+    section { padding:4rem 2rem; }
+    .container { max-width:960px; margin:0 auto; }
+    .filtros { display:flex; justify-content:center; gap:.7rem; flex-wrap:wrap; margin-bottom:2.4rem; }
+    .filtro {
+      padding:.48rem 1.2rem; border-radius:50px;
+      border:2px solid var(--rosa-medio); background:transparent;
+      color:var(--texto); font-family:'Poppins',sans-serif;
+      font-size:.83rem; font-weight:500; cursor:pointer; transition:all .2s;
+    }
+    .filtro:hover, .filtro.ativo { background:var(--rosa); border-color:var(--rosa); color:#fff; }
+
+    /* GRID */
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(275px,1fr)); gap:1.4rem; }
+    .card {
+      background:#fff; border-radius:20px; overflow:hidden;
+      box-shadow:0 4px 18px var(--sombra); border:1px solid var(--rosa-claro);
+      transition:transform .3s, box-shadow .3s;
+    }
+    .card:hover { transform:translateY(-8px); box-shadow:0 16px 40px rgba(255,133,161,.25); }
+    .card.oculto { display:none; }
+    .thumb {
+      height:150px; display:flex; align-items:center; justify-content:center;
+      font-size:3.8rem;
+      background:linear-gradient(135deg,var(--rosa-claro),var(--rosa-medio));
+    }
+    .corpo { padding:1.2rem; }
+    .tags { display:flex; flex-wrap:wrap; gap:.35rem; margin-bottom:.7rem; }
+    .tag { font-size:.7rem; background:var(--rosa-claro); color:var(--rosa-escuro); padding:.18rem .65rem; border-radius:50px; font-weight:600; }
+    .corpo h3 { font-family:'Playfair Display',serif; font-size:1.1rem; margin-bottom:.35rem; }
+    .corpo p  { font-size:.83rem; color:var(--texto-leve); margin-bottom:.9rem; }
+    .links { display:flex; gap:.7rem; }
+    .link-proj { font-size:.78rem; color:var(--rosa-escuro); text-decoration:none; font-weight:500; display:flex; align-items:center; gap:.25rem; transition:color .2s; }
+    .link-proj:hover { color:var(--rosa); }
+
+    /* FOOTER */
+    footer { background:var(--texto); color:#fff; text-align:center; padding:1.8rem 2rem; }
+    footer p { font-size:.82rem; opacity:.7; }
+    footer strong { color:var(--rosa-medio); opacity:1; }
+    .footer-social { display:flex; justify-content:center; gap:1.1rem; margin-top:.7rem; }
+    .footer-social a { color:var(--rosa-medio); font-size:1.2rem; text-decoration:none; transition:transform .2s; display:inline-block; }
+    .footer-social a:hover { transform:scale(1.25); }
+
+    /* REVEAL */
+    .reveal { opacity:0; transform:translateY(24px); transition:opacity .5s ease, transform .5s ease; }
+    .reveal.visivel { opacity:1; transform:translateY(0); }
+
+    /* RESPONSIVE */
+    @media(max-width:768px){
+      .nav-links{
+    display:flex;
+    align-items:center;
+    gap:2rem;
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+      .nav-links.aberto{ display:flex; }
+      .hamburger{ display:flex; }
+    }
+    @media(max-width:480px){ .grid{ grid-template-columns:1fr; } }
+    @media(prefers-reduced-motion:reduce){ *,*::before,*::after{animation:none!important;transition:none!important} }
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="index.html" class="logo">Início</a>
+
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a href="./index.html">Início</a></li>
+    <li><a href="./projetos.html" class="ativa">Projetos</a></li>
+    <li><a href="./contato.html">Contato</a></li>
+  </ul>
+</nav>
+
+<main>
+  <div class="page-hero">
+    <h1 class="sec-titulo reveal">Meus Projetos Principais</h1>
+    <span class="sec-linha reveal"></span>
+   <p class="intro reveal">
+  Conheça alguns dos principais projetos que desenvolvi utilizando Java, Spring Boot, Python e outras tecnologias durante minha formação e experiências práticas.
+</p>
+  </div>
+
+  <section>
+    <div class="container">
+      <!-- Filtros -->
+     <div class="filtros reveal" role="group" aria-label="Filtrar projetos">
+  <button class="filtro ativo" data-f="todos">Todos</button>
+  <button class="filtro" data-f="tourai">TourAI</button>
+  <button class="filtro" data-f="backend">Backend</button>
+  <button class="filtro" data-f="python">Python</button>
+</div>
+
+      <!-- Cards -->
+
+<div class="grid">
+
+  <!-- TOURAI -->
+  <article class="card reveal" data-cat="tourai backend">
+    <div class="thumb">✵</div>
+    <div class="corpo">
+      <div class="tags">
+        <span class="tag">Java</span>
+        <span class="tag">Spring Boot</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">API REST</span>
+      </div>
+
+      <h3>TourAI</h3>
+
+      <p>
+       Aplicação desenvolvida em hackathon pela equipe AltTech para geração de roteiros turísticos inteligentes e personalizados com apoio de IA.
+      </p>
+
+<div class="links">
+  <a href="https://github.com/vvramos01/TourAI-Hackaton-API" target="_blank" rel="noopener" class="link-proj">GitHub</a>
+</div>
+      </div>
+    </div>
+  </article>
+
+  <!-- SERVICE DESK -->
+  <article class="card reveal" data-cat="backend">
+    <div class="thumb">모</div>
+    <div class="corpo">
+      <div class="tags">
+        <span class="tag">Java</span>
+        <span class="tag">Spring Boot</span>
+        <span class="tag">PostgreSQL</span>
+        <span class="tag">API REST</span>
+      </div>
+
+      <h3>Service Desk API</h3>
+
+      <p>
+        Sistema backend para gerenciamento de chamados de TI com autenticação, controle de prioridades e acompanhamento de status.
+      </p>
+
+      <div class="links">
+        <a href="https://github.com/vvramos01/Service-desk-api-Java#service-desk-api"
+   target="_blank"
+   rel="noopener"
+   class="link-proj">GitHub</a>
+      </div>
+    </div>
+  </article>
+
+  <!-- ETL -->
+  <article class="card reveal" data-cat="python">
+    <div class="thumb">⛶</div>
+    <div class="corpo">
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">Pandas</span>
+        <span class="tag">SQLite</span>
+        <span class="tag">ETL</span>
+      </div>
+
+      <h3>ETL Pipeline em Python</h3>
+
+      <p>
+        Pipeline ETL em Python para extração, tratamento e carregamento de dados de vendas utilizando automação e análise com Pandas.
+      </p>
+
+      <div class="links">
+        <a href="https://github.com/vvramos01/Projeto-etl-pipeline-python"
+   target="_blank"
+   rel="noopener"
+   class="link-proj">GitHub</a>
+      </div>
+    </div>
+  </article>
+
+</div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>Feito com carinho por <strong>Vitória Ramos</strong> — 2026</p>
+
+  <div class="footer-social">
+    <a href="https://github.com/vvramos01" target="_blank" rel="noopener" aria-label="GitHub">
+      GitHub
+    </a>
+
+    <a href="https://www.linkedin.com/in/vit%C3%B3ria-ramos-078934313/" target="_blank" rel="noopener" aria-label="LinkedIn">
+  LinkedIn
+</a>
+
+    <a href="mailto:vitoria.ramos@edu.unifil.br" aria-label="E-mail">
+      E-mail
+    </a>
+  </div>
+</footer>
+
+<script>
+  // NAV
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 20));
+  const hamburger = document.getElementById('hamburger');
+  const navLinks  = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('aberto');
+    navLinks.classList.toggle('aberto');
+  });
+
+  // FILTROS
+  const botoes   = document.querySelectorAll('.filtro');
+  const cards    = document.querySelectorAll('.card');
+  botoes.forEach(btn => {
+    btn.addEventListener('click', () => {
+      botoes.forEach(b => b.classList.remove('ativo'));
+      btn.classList.add('ativo');
+      const f = btn.dataset.f;
+      cards.forEach(card => {
+        const cats = card.dataset.cat || '';
+        const mostrar = f === 'todos' || cats.split(' ').includes(f);
+        card.classList.toggle('oculto', !mostrar);
+        if (mostrar) card.style.animation = 'aparecer .4s ease both';
+      });
+    });
+  });
+
+  // REVEAL
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visivel'), (e.target.dataset.d || 0) * 100);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach((el, i) => { el.dataset.d = i % 5; obs.observe(el); });
+
+  // Animação CSS necessária para filtros
+  const style = document.createElement('style');
+  style.textContent = '@keyframes aparecer{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}';
+  document.head.appendChild(style);
+</script>
+</body>
+</html>
