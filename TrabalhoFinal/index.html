@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfólio — Projetos</title>
+  <title>Portfólio — Início</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
+    /* ===== RESET & VARIÁVEIS ===== */
     :root {
       --rosa:        #FF85A1;
       --rosa-claro:  #FFD6E0;
@@ -20,95 +21,159 @@
     }
     *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
     html { scroll-behavior:smooth; }
-    body { font-family:'Poppins',sans-serif; background:var(--bg); color:var(--texto); line-height:1.7; overflow-x:hidden; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--texto);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
 
-    /* NAV */
-   #navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    height: 62px;
-    padding: 0 2rem;
-
-    background: rgba(255,250,252,.93);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--rosa-claro);
-}
-    #navbar.scrolled { box-shadow:0 4px 20px var(--sombra); }
-   .logo{
-    display:block;
-    font-family:'Playfair Display',serif;
-    font-size:1.4rem;
-    font-style:italic;
-    font-weight:bold;
-    color:var(--rosa-escuro);
-    text-decoration:none;
-    white-space:nowrap;
-}
+    /* ===== NAV ===== */
+    nav {
+      position: fixed; top:0; left:0; right:0; z-index:100;
+      background: rgba(255,250,252,0.93);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--rosa-claro);
+      height: 62px;
+      display: flex; align-items:center; justify-content:space-between;
+      padding: 0 2rem;
+      transition: box-shadow .3s;
+    }
+    nav.scrolled { box-shadow: 0 4px 20px var(--sombra); }
+    .logo {
+      font-family:'Playfair Display',serif;
+      font-style:italic; font-size:1.35rem;
+      color:var(--rosa-escuro); text-decoration:none;
+    }
     .nav-links { display:flex; gap:2rem; list-style:none; }
-    .nav-links a { text-decoration:none; color:var(--texto); font-size:.88rem; font-weight:500; position:relative; padding-bottom:4px; transition:color .2s; }
-    .nav-links a::after { content:''; position:absolute; bottom:0; left:0; width:0; height:2px; border-radius:2px; background:var(--rosa); transition:width .3s; }
+    .nav-links a {
+      text-decoration:none; color:var(--texto);
+      font-size:.88rem; font-weight:500;
+      position:relative; padding-bottom:4px;
+      transition: color .2s;
+    }
+    .nav-links a::after {
+      content:''; position:absolute; bottom:0; left:0;
+      width:0; height:2px; border-radius:2px;
+      background:var(--rosa); transition:width .3s;
+    }
     .nav-links a:hover, .nav-links a.ativa { color:var(--rosa-escuro); }
     .nav-links a.ativa::after, .nav-links a:hover::after { width:100%; }
-    .hamburger { display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
-    .hamburger span { display:block; width:24px; height:2px; background:var(--texto); border-radius:2px; transition:all .3s; }
+    .hamburger {
+      display:none; flex-direction:column; gap:5px;
+      background:none; border:none; cursor:pointer; padding:4px;
+    }
+    .hamburger span {
+      display:block; width:24px; height:2px;
+      background:var(--texto); border-radius:2px; transition:all .3s;
+    }
     .hamburger.aberto span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
     .hamburger.aberto span:nth-child(2){ opacity:0; }
     .hamburger.aberto span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
 
-    /* HERO PAGE */
-    .page-hero {
-      padding:8rem 2rem 2.5rem;
-      text-align:center;
-      background:radial-gradient(ellipse 75% 50% at 50% 0%, var(--rosa-claro), transparent 70%);
+    /* ===== HERO ===== */
+    .hero {
+      min-height:100vh; display:flex; flex-direction:column;
+      align-items:center; justify-content:center;
+      text-align:center; padding:6rem 2rem 4rem;
+      position:relative; overflow:hidden;
     }
-    .sec-titulo { font-family:'Playfair Display',serif; font-size:clamp(1.7rem,3.5vw,2.3rem); text-align:center; margin-bottom:.4rem; }
-    .sec-linha { display:block; width:46px; height:3px; background:linear-gradient(90deg,var(--rosa),var(--rosa-medio)); border-radius:2px; margin:.3rem auto .6rem; }
-    .intro { color:var(--texto-leve); font-size:.92rem; margin-bottom:0; }
+    .hero::before {
+      content:''; position:absolute; inset:0;
+      background: radial-gradient(ellipse 80% 55% at 50% 5%, var(--rosa-claro) 0%, transparent 68%);
+      z-index:0;
+    }
+    .hero > * { position:relative; z-index:1; }
 
-    /* FILTROS */
-    section { padding:4rem 2rem; }
+    .avatar {
+      width:150px; height:150px; border-radius:50%;
+      background: linear-gradient(135deg,var(--rosa-claro),var(--rosa-medio));
+      border:4px solid var(--rosa-medio);
+      box-shadow:0 8px 32px var(--sombra);
+      display:flex; align-items:center; justify-content:center;
+      font-size:4.2rem; margin-bottom:1.5rem;
+      animation: aparecer .8s ease both;
+    }
+    .hero h1 {
+      font-family:'Playfair Display',serif;
+      font-size:clamp(2rem,5vw,3.6rem);
+      color:var(--texto); margin-bottom:.4rem;
+      animation: subir .8s .2s ease both;
+    }
+    .hero h1 span { color:var(--rosa); }
+    .cursor {
+      display:inline-block; width:3px; height:.85em;
+      background:var(--rosa); border-radius:2px;
+      vertical-align:middle; margin-left:3px;
+      animation:piscar 1s step-end infinite;
+    }
+    .digitado {
+      font-size:1.05rem; color:var(--rosa-escuro); font-weight:500;
+      margin-bottom:.8rem; min-height:1.6rem;
+      animation: subir .8s .35s ease both;
+    }
+    .hero p {
+      max-width:500px; color:var(--texto-leve); font-size:.93rem;
+      margin-bottom:2rem; animation: subir .8s .5s ease both;
+    }
+    .btns { display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; animation:subir .8s .65s ease both; }
+    .btn {
+      display:inline-flex; align-items:center; gap:.45rem;
+      padding:.72rem 1.7rem; border-radius:50px;
+      font-size:.88rem; font-weight:500; font-family:'Poppins',sans-serif;
+      text-decoration:none; cursor:pointer; transition:all .25s;
+      border:2px solid transparent;
+    }
+    .btn-p { background:var(--rosa); color:#fff; border-color:var(--rosa); }
+    .btn-p:hover { background:var(--rosa-escuro); border-color:var(--rosa-escuro); transform:translateY(-2px); box-shadow:0 8px 20px rgba(217,79,114,.3); }
+    .btn-s { background:transparent; color:var(--rosa-escuro); border-color:var(--rosa-medio); }
+    .btn-s:hover { background:var(--rosa-claro); transform:translateY(-2px); }
+
+    /* ===== SECTIONS ===== */
+    section { padding:5rem 2rem; }
     .container { max-width:960px; margin:0 auto; }
-    .filtros { display:flex; justify-content:center; gap:.7rem; flex-wrap:wrap; margin-bottom:2.4rem; }
-    .filtro {
-      padding:.48rem 1.2rem; border-radius:50px;
-      border:2px solid var(--rosa-medio); background:transparent;
-      color:var(--texto); font-family:'Poppins',sans-serif;
-      font-size:.83rem; font-weight:500; cursor:pointer; transition:all .2s;
+    .sec-titulo {
+      font-family:'Playfair Display',serif;
+      font-size:clamp(1.7rem,3.5vw,2.3rem);
+      text-align:center; margin-bottom:.4rem;
     }
-    .filtro:hover, .filtro.ativo { background:var(--rosa); border-color:var(--rosa); color:#fff; }
+    .sec-linha {
+      display:block; width:46px; height:3px;
+      background:linear-gradient(90deg,var(--rosa),var(--rosa-medio));
+      border-radius:2px; margin:.3rem auto 2.8rem;
+    }
 
-    /* GRID */
-    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(275px,1fr)); gap:1.4rem; }
-    .card {
-      background:#fff; border-radius:20px; overflow:hidden;
-      box-shadow:0 4px 18px var(--sombra); border:1px solid var(--rosa-claro);
-      transition:transform .3s, box-shadow .3s;
-    }
-    .card:hover { transform:translateY(-8px); box-shadow:0 16px 40px rgba(255,133,161,.25); }
-    .card.oculto { display:none; }
-    .thumb {
-      height:150px; display:flex; align-items:center; justify-content:center;
-      font-size:3.8rem;
+    /* ===== SOBRE ===== */
+    .sobre-grid { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; }
+    .sobre-grid h2 { font-family:'Playfair Display',serif; font-size:1.7rem; margin-bottom:.9rem; }
+    .sobre-grid p  { color:var(--texto-leve); font-size:.93rem; margin-bottom:.8rem; }
+    .sobre-img {
       background:linear-gradient(135deg,var(--rosa-claro),var(--rosa-medio));
+      border-radius:22px; height:260px;
+      display:flex; align-items:center; justify-content:center;
+      font-size:5.5rem; box-shadow:0 12px 36px var(--sombra);
+      animation:flutuar 4s ease-in-out infinite;
     }
-    .corpo { padding:1.2rem; }
-    .tags { display:flex; flex-wrap:wrap; gap:.35rem; margin-bottom:.7rem; }
-    .tag { font-size:.7rem; background:var(--rosa-claro); color:var(--rosa-escuro); padding:.18rem .65rem; border-radius:50px; font-weight:600; }
-    .corpo h3 { font-family:'Playfair Display',serif; font-size:1.1rem; margin-bottom:.35rem; }
-    .corpo p  { font-size:.83rem; color:var(--texto-leve); margin-bottom:.9rem; }
-    .links { display:flex; gap:.7rem; }
-    .link-proj { font-size:.78rem; color:var(--rosa-escuro); text-decoration:none; font-weight:500; display:flex; align-items:center; gap:.25rem; transition:color .2s; }
-    .link-proj:hover { color:var(--rosa); }
 
-    /* FOOTER */
+    /* ===== HABILIDADES ===== */
+    .bg-suave { background:var(--cinza-suave); }
+    .skills-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
+      gap:1.1rem;
+    }
+    .skill-card {
+      background:#fff; border-radius:16px;
+      padding:1.4rem 1rem; text-align:center;
+      box-shadow:0 2px 12px var(--sombra);
+      transition:transform .25s, box-shadow .25s;
+    }
+    .skill-card:hover { transform:translateY(-6px); box-shadow:0 12px 28px var(--sombra); }
+    .skill-card .ico { font-size:2.1rem; margin-bottom:.5rem; }
+    .skill-card span { font-size:.82rem; font-weight:500; }
+
+    /* ===== FOOTER ===== */
     footer { background:var(--texto); color:#fff; text-align:center; padding:1.8rem 2rem; }
     footer p { font-size:.82rem; opacity:.7; }
     footer strong { color:var(--rosa-medio); opacity:1; }
@@ -116,24 +181,31 @@
     .footer-social a { color:var(--rosa-medio); font-size:1.2rem; text-decoration:none; transition:transform .2s; display:inline-block; }
     .footer-social a:hover { transform:scale(1.25); }
 
-    /* REVEAL */
-    .reveal { opacity:0; transform:translateY(24px); transition:opacity .5s ease, transform .5s ease; }
+    /* ===== ANIMAÇÕES ===== */
+    @keyframes aparecer { from{opacity:0;transform:scale(.85)} to{opacity:1;transform:scale(1)} }
+    @keyframes subir    { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes piscar   { 0%,100%{opacity:1} 50%{opacity:0} }
+    @keyframes flutuar  { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+    .reveal { opacity:0; transform:translateY(26px); transition:opacity .55s ease,transform .55s ease; }
     .reveal.visivel { opacity:1; transform:translateY(0); }
 
-    /* RESPONSIVE */
+    /* ===== RESPONSIVO ===== */
     @media(max-width:768px){
       .nav-links{
-    display:flex;
-    align-items:center;
-    gap:2rem;
-    list-style:none;
-    margin:0;
-    padding:0;
-}
+        display:none; flex-direction:column;
+        position:absolute; top:62px; left:0; right:0;
+        background:var(--bg); padding:1.5rem 2rem; gap:1.2rem;
+        border-bottom:1px solid var(--rosa-claro);
+        box-shadow:0 8px 24px var(--sombra);
+      }
       .nav-links.aberto{ display:flex; }
       .hamburger{ display:flex; }
+      .sobre-grid{ grid-template-columns:1fr; }
+      .sobre-img{ height:180px; }
     }
-    @media(max-width:480px){ .grid{ grid-template-columns:1fr; } }
+    @media(max-width:480px){
+      .btns{ flex-direction:column; align-items:center; }
+    }
     @media(prefers-reduced-motion:reduce){ *,*::before,*::after{animation:none!important;transition:none!important} }
   </style>
 </head>
@@ -143,121 +215,100 @@
   <a href="index.html" class="logo">Início</a>
 
   <button class="hamburger" id="hamburger" aria-label="Menu">
-    <span></span>
-    <span></span>
-    <span></span>
+    <span></span><span></span><span></span>
   </button>
 
   <ul class="nav-links" id="navLinks">
-    <li><a href="./index.html">Início</a></li>
-    <li><a href="./projetos.html" class="ativa">Projetos</a></li>
-    <li><a href="./contato.html">Contato</a></li>
+    <li><a href="index.html" class="ativa">Início</a></li>
+    <li><a href="projetos.html">Projetos</a></li>
+    <li><a href="contato.html">Contato</a></li>
   </ul>
 </nav>
 
 <main>
-  <div class="page-hero">
-    <h1 class="sec-titulo reveal">Meus Projetos Principais</h1>
-    <span class="sec-linha reveal"></span>
-   <p class="intro reveal">
-  Conheça alguns dos principais projetos que desenvolvi utilizando Java, Spring Boot, Python e outras tecnologias durante minha formação e experiências práticas.
-</p>
+  <!-- HERO -->
+  <section class="hero">
+  <div class="avatar" aria-hidden="true">🐰</div>
+
+<h1>
+    <span id="titulo"></span>
+    <span class="cursor"></span>
+</h1>
+
+  <p class="digitado" id="digitado"></p>
+
+  <p>
+    Apaixonada por tecnologia, design e cibersegurança, construindo experiências digitais com foco em inovação e aprendizado contínuo.
+  </p>
+
+  <div class="btns">
+    <a href="projetos.html" class="btn btn-p">Ver meus projetos</a>
+    <a href="contato.html" class="btn btn-s">Entrar em contato</a>
   </div>
+</section>
 
-  <section>
-    <div class="container">
-      <!-- Filtros -->
-     <div class="filtros reveal" role="group" aria-label="Filtrar projetos">
-  <button class="filtro ativo" data-f="todos">Todos</button>
-  <button class="filtro" data-f="tourai">TourAI</button>
-  <button class="filtro" data-f="backend">Backend</button>
-  <button class="filtro" data-f="python">Python</button>
-</div>
+  <!-- SOBRE -->
+<section>
+  <div class="container">
+    <div class="sobre-grid">
 
-      <!-- Cards -->
+      <div>
+        <h2>Um pouco sobre mim</h2>
 
-<div class="grid">
+        <p>
+          Sou estudante de Engenharia de Software, atualmente trabalho como
+          ServiceDesk Bilíngue na Atos (Semantix), porém pretendo migrar para a
+          área de cibersegurança.
+        </p>
 
-  <!-- TOURAI -->
-  <article class="card reveal" data-cat="tourai backend">
-    <div class="thumb">✵</div>
-    <div class="corpo">
-      <div class="tags">
-        <span class="tag">Java</span>
-        <span class="tag">Spring Boot</span>
-        <span class="tag">JavaScript</span>
-        <span class="tag">API REST</span>
+        <p>
+          Adoro aprender coisas novas, resolver problemas criativamente e
+          transformar ideias em projetos reais. Quando não estou codando,
+          estou jogando, lendo ou tomando um café (ou dormindo rs).
+        </p>
+
+        <p>
+          Estou sempre buscando evoluir, melhorar profissionalmente e expandir
+          meus conhecimentos na área.
+        </p>
+
+        <p>
+          Tenho muita ambição em relação ao meu futuro e estou determinada a
+          crescer, conquistar meus objetivos e construir uma carreira sólida
+          no universo da tecnologia.
+        </p>
+
+        <a href="projetos.html" class="btn btn-p" style="margin-top:1.2rem; display:inline-block;">
+          Ver projetos →
+        </a>
       </div>
 
-      <h3>TourAI</h3>
-
-      <p>
-       Aplicação desenvolvida em hackathon pela equipe AltTech para geração de roteiros turísticos inteligentes e personalizados com apoio de IA.
-      </p>
-
-<div class="links">
-  <a href="https://github.com/vvramos01/TourAI-Hackaton-API" target="_blank" rel="noopener" class="link-proj">GitHub</a>
-</div>
+      <div class="sobre-img">
+        🐰
       </div>
+
     </div>
-  </article>
+  </div>
+</section>
 
-  <!-- SERVICE DESK -->
-  <article class="card reveal" data-cat="backend">
-    <div class="thumb">모</div>
-    <div class="corpo">
-      <div class="tags">
-        <span class="tag">Java</span>
-        <span class="tag">Spring Boot</span>
-        <span class="tag">PostgreSQL</span>
-        <span class="tag">API REST</span>
-      </div>
+  <!-- HABILIDADES -->
+<section class="bg-suave">
+  <div class="container">
+    <h2 class="sec-titulo reveal">Minhas habilidades</h2>
+    <span class="sec-linha reveal"></span>
 
-      <h3>Service Desk API</h3>
-
-      <p>
-        Sistema backend para gerenciamento de chamados de TI com autenticação, controle de prioridades e acompanhamento de status.
-      </p>
-
-      <div class="links">
-        <a href="https://github.com/vvramos01/Service-desk-api-Java#service-desk-api"
-   target="_blank"
-   rel="noopener"
-   class="link-proj">GitHub</a>
-      </div>
+    <div class="skills-grid">
+      <article class="skill-card reveal"><div class="ico">☕︎</div><span>Java</span></article>
+      <article class="skill-card reveal"><div class="ico">♦</div><span>Spring Boot</span></article>
+      <article class="skill-card reveal"><div class="ico">♠</div><span>APIs REST</span></article>
+      <article class="skill-card reveal"><div class="ico">𓆙</div><span>Python</span></article>
+      <article class="skill-card reveal"><div class="ico">♣</div><span>SQL / PostgreSQL</span></article>
+      <article class="skill-card reveal"><div class="ico">𖠌</div><span>Pandas / ETL</span></article>
+      <article class="skill-card reveal"><div class="ico">⚙︎</div><span>Git & GitHub</span></article>
+      <article class="skill-card reveal"><div class="ico">{ }</div><span>HTML, CSS & JavaScript</span></article>
     </div>
-  </article>
-
-  <!-- ETL -->
-  <article class="card reveal" data-cat="python">
-    <div class="thumb">⛶</div>
-    <div class="corpo">
-      <div class="tags">
-        <span class="tag">Python</span>
-        <span class="tag">Pandas</span>
-        <span class="tag">SQLite</span>
-        <span class="tag">ETL</span>
-      </div>
-
-      <h3>ETL Pipeline em Python</h3>
-
-      <p>
-        Pipeline ETL em Python para extração, tratamento e carregamento de dados de vendas utilizando automação e análise com Pandas.
-      </p>
-
-      <div class="links">
-        <a href="https://github.com/vvramos01/Projeto-etl-pipeline-python"
-   target="_blank"
-   rel="noopener"
-   class="link-proj">GitHub</a>
-      </div>
-    </div>
-  </article>
-
-</div>
-    </div>
-  </section>
-</main>
+  </div>
+</section>
 
 <footer>
   <p>Feito com carinho por <strong>Vitória Ramos</strong> — 2026</p>
@@ -275,51 +326,117 @@
       E-mail
     </a>
   </div>
+</div>
 </footer>
-
 <script>
-  // NAV
+  // ---- NAV SCROLL ----
   const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 20));
+
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // ---- HAMBURGER ----
   const hamburger = document.getElementById('hamburger');
-  const navLinks  = document.getElementById('navLinks');
+  const navLinks = document.getElementById('navLinks');
+
   hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('aberto');
     navLinks.classList.toggle('aberto');
   });
 
-  // FILTROS
-  const botoes   = document.querySelectorAll('.filtro');
-  const cards    = document.querySelectorAll('.card');
-  botoes.forEach(btn => {
-    btn.addEventListener('click', () => {
-      botoes.forEach(b => b.classList.remove('ativo'));
-      btn.classList.add('ativo');
-      const f = btn.dataset.f;
-      cards.forEach(card => {
-        const cats = card.dataset.cat || '';
-        const mostrar = f === 'todos' || cats.split(' ').includes(f);
-        card.classList.toggle('oculto', !mostrar);
-        if (mostrar) card.style.animation = 'aparecer .4s ease both';
-      });
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      hamburger.classList.remove('aberto');
+      navLinks.classList.remove('aberto');
     });
   });
 
-  // REVEAL
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach((e, i) => {
-      if (e.isIntersecting) {
-        setTimeout(() => e.target.classList.add('visivel'), (e.target.dataset.d || 0) * 100);
-        obs.unobserve(e.target);
+  // ---- DIGITAÇÃO DO TÍTULO ----
+  function iniciarTitulo() {
+    const titulo = document.getElementById("titulo");
+    const texto = "Olá, sou Vitória";
+
+    let i = 0;
+    titulo.textContent = "";
+
+    function escrever() {
+      if (i < texto.length) {
+        titulo.textContent += texto.charAt(i);
+        i++;
+        setTimeout(escrever, 120);
+      } else {
+        digitacao();
+      }
+    }
+
+    escrever();
+  }
+
+  // ---- EFEITO DIGITAÇÃO ----
+  function digitacao() {
+    const el = document.getElementById('digitado');
+
+    const frases = [
+      'Estudante de Engenharia de Software',
+      'Apaixonada por Tecnologia',
+      'Criativa e Curiosa',
+      'Sempre aprendendo'
+    ];
+
+    let fi = 0;
+    let ci = 0;
+    let deletando = false;
+
+    function tick() {
+      const frase = frases[fi];
+
+      if (!deletando) {
+        ci++;
+        el.textContent = frase.substring(0, ci);
+
+        if (ci === frase.length) {
+          deletando = true;
+          setTimeout(tick, 1800);
+          return;
+        }
+      } else {
+        ci--;
+        el.textContent = frase.substring(0, ci);
+
+        if (ci === 0) {
+          deletando = false;
+          fi = (fi + 1) % frases.length;
+        }
+      }
+
+      setTimeout(tick, deletando ? 50 : 100);
+    }
+
+    tick();
+  }
+
+  iniciarTitulo();
+
+  // ---- REVEAL ON SCROLL ----
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visivel');
+        }, (entry.target.dataset.d || 0) * 100);
+
+        obs.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.reveal').forEach((el, i) => { el.dataset.d = i % 5; obs.observe(el); });
+  }, {
+    threshold: 0.1
+  });
 
-  // Animação CSS necessária para filtros
-  const style = document.createElement('style');
-  style.textContent = '@keyframes aparecer{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}';
-  document.head.appendChild(style);
+  document.querySelectorAll('.reveal').forEach((el, i) => {
+    el.dataset.d = i % 5;
+    obs.observe(el);
+  });
 </script>
 </body>
 </html>
